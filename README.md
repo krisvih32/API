@@ -7,3 +7,4 @@ If something is all capitalized e.g. "ABCD" it is to be replaced. If something i
 |---|--|
 | ![move_forward_for_rotations](./images/move_forward_for_rotations.png) | ```move.forward_for(ROTATIONS, "rotations", ?LEFT_SPEED, ?RIGHT_SPEED)```|
 | ![move_forward_for_degrees](./images/move_forward_for_degrees.png) | ```move.forward_for(DEGREES, "degrees", ?LEFT_SPEED, ?RIGHT_SPEED)```|
+| ![move_forward_for_seconds](./images/move_forward_for_seconds.png) | ```move.forward_for(SECONDS, "seconds", ?LEFT_SPEED, ?RIGHT_SPEED)```|
