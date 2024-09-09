@@ -2,6 +2,11 @@
 ## Info
 This is a simpler and more intuitive API which runs on SPIKE 3. Just fork this repo and put your main.py in the official lego SPIKE Prime 3 editor. Add your code at the end of the API after the comment. You may remove the comment if you wish.
 ## Documentation
+### Simple example
+
+| python | wordblock
+|---|---|
+| ![Python](./images/Python.png) | ![wordblock](./images/wordblock.png)
 ### Movement
 #### General info
 If something is all capitalized e.g. "ABCD" it is to be replaced. If something is "?" followed by all capitalized e.g. "?ABCD" it is optional and can be replaced. If two optional arguments are excluded, ", , " is implicitly converted to ", ".
