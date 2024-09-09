@@ -23,3 +23,4 @@ If LEFT_SPEED is changed, LEFT_SPEED's default will be edited. Same with right_s
 | ![start_moving_backward](./images/start_moving_backward.png) | ```move.backward(?LEFT_SPEED, ?RIGHT_SPEED)```|Moves backward until direction to stop at LEFT_SPEED speed for the left wheel and RIGHT_SPEED speed for the right wheel
 | ![set_movement_speed_to](./images/set_movement_speed_to.png) | ```move.set_speed(SPEED)```|Sets default speed to SPEED as above in general info
 | ![set_movement_motors_to](./images/set_movement_motors_to.png) | ```move=MotorPair(LEFT_PORT, RIGHT_PORT, ?WHEEL_DIAMETER_MM, ?ONE_MOTOR_ROTATION_IN_CM)```|Sets movement motors. Also needs either WHEEL_DIAMETER_MM or ONE_MOTOR_ROTATION_IN_CM must be passed. Both must not be passed.
+| ![set_1_motor_rotation_cm](./images/set_1_motor_rotation_cm.png) | ```move.set_motor_rotation(ONE_MOTOR_ROTATION_IN_CM)```|Sets distance moved in cm by one motor rotation.
