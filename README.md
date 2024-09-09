@@ -3,7 +3,7 @@
 This is a simpler and more intuitive API which runs on SPIKE 3. Just fork this repo and put your main.py in the official lego SPIKE Prime 3 editor. Add your code at the end of the API after the comment. You may remove the comment if you wish.
 ## Documentation
 ### Simple example
-| ![python and word blocks side by side](./images/python_wordblock_side_by_side.png)
+![python and word blocks side by side](./images/python_wordblock_side_by_side.png)
 ### Movement
 #### General info
 If something is all capitalized e.g. "ABCD" it is to be replaced. If something is "?" followed by all capitalized e.g. "?ABCD" it is optional and can be replaced. If two optional arguments are excluded, ", , " is implicitly converted to ", ".
