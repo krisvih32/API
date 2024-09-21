@@ -1,4 +1,311 @@
-docs 
-doctest - Module doctest -- a framework for running examples in docstrings.
-setuptools.command.upload_docs - upload_docs
-validate_pyproject.plugins - .. _entry point: https://setuptools.readthedocs.io/en/latest/userguide/entry_point.html
+Help on module docs:
+
+NAME
+    docs
+
+CLASSES
+    builtins.object
+        MotionSensor
+        Motor
+        MotorPair
+
+    class MotionSensor(builtins.object)
+     |  Static methods defined here:
+     |
+     |  reset_yaw(yaw)
+     |      Resets the yaw angle of the motion sensor to a specified value.
+     |
+     |      This method allows you to set a new reference point for the yaw angle.
+     |      After calling this method, the current orientation of the sensor will
+     |      be considered as the specified yaw angle.
+     |
+     |      Parameters:
+     |      -----------
+     |      yaw : float
+     |          The new yaw angle value to set as the reference point.
+     |          This value is typically in degrees, but the exact unit may depend
+     |          on the specific implementation of the motion_sensor module.
+     |
+     |      Notes:
+     |      ------
+     |      - This method directly calls the motion_sensor.reset_yaw() function,
+     |        which suggests it's interfacing with a hardware-level sensor.
+     |      - The effect of this method is immediate and will impact all subsequent
+     |        yaw angle readings.
+     |
+     |      Example:
+     |      --------
+     |      >>> MotionSensor.reset_yaw(0)  # Resets the current orientation to be considered as 0 degrees
+     |      >>> MotionSensor.reset_yaw(90)  # Resets the current orientation to be considered as 90 degrees
+     |
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |
+     |  __dict__
+     |      dictionary for instance variables
+     |
+     |  __weakref__
+     |      list of weak references to the object
+
+    class Motor(builtins.object)
+     |  Methods defined here:
+     |
+     |  run_for_degrees(self, degrees, speed=None)
+     |      Runs the motor for a specified number of degrees.
+     |
+     |      Parameters:
+     |      -----------
+     |      degrees : int
+     |          The number of degrees to run the motor.
+     |      speed : int, optional
+     |          The speed at which to run the motor. If not specified,
+     |          the default speed set by set_default_speed() will be used.
+     |
+     |      Raises:
+     |      -------
+     |      RuntimeError
+     |          If the motor gets disconnected during operation.
+     |
+     |      Notes:
+     |      ------
+     |      - The degrees_ran attribute is updated after the operation.
+     |
+     |      Example:
+     |      --------
+     |      >>> motor = Motor('A')
+     |      >>> motor.run_for_degrees(180, 100)  # Runs for 180 degrees at speed 100
+     |
+     |  run_for_rotations(self, rotations, speed)
+     |      Runs the motor for a specified number of rotations.
+     |
+     |      Parameters:
+     |      -----------
+     |      rotations : float
+     |          The number of rotations to run the motor.
+     |      speed : int
+     |          The speed at which to run the motor.
+     |
+     |      Notes:
+     |      ------
+     |      - This method converts rotations to degrees (1 rotation = 360 degrees)
+     |        and calls run_for_degrees().
+     |
+     |      Example:
+     |      --------
+     |      >>> motor = Motor('A')
+     |      >>> motor.run_for_rotations(2.5, 75)  # Runs for 2.5 rotations at speed 75
+     |
+     |  run_for_seconds(self, seconds, speed)
+     |      Runs the motor for a specified number of seconds.
+     |
+     |      Parameters:
+     |      -----------
+     |      seconds : float
+     |          The number of seconds to run the motor.
+     |      speed : int
+     |          The speed at which to run the motor.
+     |
+     |      Raises:
+     |      -------
+     |      RuntimeError
+     |          If the motor gets disconnected during operation.
+     |
+     |      Notes:
+     |      ------
+     |      - The degrees_ran attribute is updated after the operation,
+     |        based on the time run and speed.
+     |
+     |      Example:
+     |      --------
+     |      >>> motor = Motor('A')
+     |      >>> motor.run_for_seconds(3, 50)  # Runs for 3 seconds at speed 50
+     |
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |
+     |  __dict__
+     |      dictionary for instance variables
+     |
+     |  __weakref__
+     |      list of weak references to the object
+
+    class MotorPair(builtins.object)
+     |  Methods defined here:
+     |
+     |  backward_for(self, amount, unit, left_speed, right_speed)
+     |      Moves the motor pair backward for a specified amount.
+     |
+     |      Parameters:
+     |      -----------
+     |      amount : float
+     |          The amount to move.
+     |      unit : str
+     |          The unit of measurement for the amount.
+     |          Must be one of 'cm', 'degrees', 'in', 'rotations', or 'seconds'.
+     |      left_speed : int
+     |          The speed of the left motor.
+     |      right_speed : int
+     |          The speed of the right motor.
+     |
+     |      Example:
+     |      --------
+     |      >>> motor_pair = MotorPair('A', 'B')
+     |      >>> motor_pair.backward_for(5, 'in', 40, 40)  # Moves backward 5 inches at speed 40 for both motors
+     |
+     |  backward_to(self, color: list[int], left_speed=None, right_speed=None)
+     |      Moves the motor pair backward until a specified color is detected.
+     |
+     |      Parameters:
+     |      -----------
+     |      color : list[int]
+     |          A list of color values to detect.
+     |      left_speed : int, optional
+     |          The speed of the left motor. If not specified, uses the default left speed.
+     |      right_speed : int, optional
+     |          The speed of the right motor. If not specified, uses the default right speed.
+     |
+     |      Example:
+     |      --------
+     |      >>> motor_pair = MotorPair('A', 'B', color_sensor='C')
+     |      >>> motor_pair.backward_to([GREEN], 40, 40)  # Moves backward until green is detected
+     |
+     |  forward_for(self, amount, unit, left_speed=None, right_speed=None)
+     |      Moves the motor pair forward for a specified amount.
+     |
+     |      Parameters:
+     |      -----------
+     |      amount : float
+     |          The amount to move.
+     |      unit : str
+     |          The unit of measurement for the amount.
+     |          Must be one of 'cm', 'degrees', 'in', 'rotations', or 'seconds'.
+     |      left_speed : int, optional
+     |          The speed of the left motor. If not specified, uses the default left speed.
+     |      right_speed : int, optional
+     |          The speed of the right motor. If not specified, uses the default right speed.
+     |
+     |      Example:
+     |      --------
+     |      >>> motor_pair = MotorPair('A', 'B')
+     |      >>> motor_pair.forward_for(10, 'cm', 50, 50)  # Moves forward 10 cm at speed 50 for both motors
+     |
+     |  forward_to(self, color: list[int], left_speed=None, right_speed=None)
+     |      Moves the motor pair forward until a specified color is detected.
+     |
+     |      Parameters:
+     |      -----------
+     |      color : list[int]
+     |          A list of color values to detect.
+     |      left_speed : int, optional
+     |          The speed of the left motor. If not specified, uses the default left speed.
+     |      right_speed : int, optional
+     |          The speed of the right motor. If not specified, uses the default right speed.
+     |
+     |      Example:
+     |      --------
+     |      >>> motor_pair = MotorPair('A', 'B', color_sensor='C')
+     |      >>> motor_pair.forward_to([RED, BLUE], 50, 50)  # Moves forward until red or blue is detected
+     |
+     |  forward_to_blue_border(self, left_speed, right_speed)
+     |      Moves the motor pair forward until a blue or azure border is detected.
+     |
+     |      Parameters:
+     |      -----------
+     |      left_speed : int
+     |          The speed of the left motor.
+     |      right_speed : int
+     |          The speed of the right motor.
+     |
+     |      Example:
+     |      --------
+     |      >>> motor_pair = MotorPair('A', 'B', color_sensor='C')
+     |      >>> motor_pair.forward_to_blue_border(50, 50)  # Moves forward until blue or azure border is detected
+     |
+     |  forward_to_red_border(self, left_speed, right_speed)
+     |      Moves the motor pair forward until a red border is detected.
+     |
+     |      Parameters:
+     |      -----------
+     |      left_speed : int
+     |          The speed of the left motor.
+     |      right_speed : int
+     |          The speed of the right motor.
+     |
+     |      Example:
+     |      --------
+     |      >>> motor_pair = MotorPair('A', 'B', color_sensor='C')
+     |      >>> motor_pair.forward_to_red_border(50, 50)  # Moves forward until red border is detected
+     |
+     |  left_motor_left_for(self, speed, yaw)
+     |      Turns left using only the left motor until a specified yaw is reached.
+     |
+     |      Parameters:
+     |      -----------
+     |      speed : int
+     |          The speed of the left motor.
+     |      yaw : float
+     |          The target yaw angle to reach.
+     |
+     |      Example:
+     |      --------
+     |      >>> motor_pair = MotorPair('A', 'B')
+     |      >>> motor_pair.left_motor_left_for(30, 45)  # Turns left using left motor until 45 degree yaw is reached
+     |
+     |  left_motor_right_for(self, speed, yaw)
+     |      Turns right using only the left motor until a specified yaw is reached.
+     |
+     |      Parameters:
+     |      -----------
+     |      speed : int
+     |          The speed of the left motor.
+     |      yaw : float
+     |          The target yaw angle to reach.
+     |
+     |      Example:
+     |      --------
+     |      >>> motor_pair = MotorPair('A', 'B')
+     |      >>> motor_pair.left_motor_right_for(30, -45)  # Turns right using left motor until -45 degree yaw is reached
+     |
+     |  right_motor_left_for(self, speed, yaw)
+     |      Turns left using only the right motor until a specified yaw is reached.
+     |
+     |      Parameters:
+     |      -----------
+     |      speed : int
+     |          The speed of the right motor.
+     |      yaw : float
+     |          The target yaw angle to reach.
+     |
+     |      Example:
+     |      --------
+     |      >>> motor_pair = MotorPair('A', 'B')
+     |      >>> motor_pair.right_motor_left_for(30, 45)  # Turns left using right motor until 45 degree yaw is reached
+     |
+     |  right_motor_right_for(self, speed, yaw)
+     |      Turns right using only the right motor until a specified yaw is reached.
+     |
+     |      Parameters:
+     |      -----------
+     |      speed : int
+     |          The speed of the right motor.
+     |      yaw : float
+     |          The target yaw angle to reach.
+     |
+     |      Example:
+     |      --------
+     |      >>> motor_pair = MotorPair('A', 'B')
+     |      >>> motor_pair.right_motor_right_for(30, -45)  # Turns right using right motor until -45 degree yaw is reached
+     |
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |
+     |  __dict__
+     |      dictionary for instance variables
+     |
+     |  __weakref__
+     |      list of weak references to the object
+
+FILE
+    /home/krisvih32/docs.py
+
+
