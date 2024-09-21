@@ -1,0 +1,4 @@
+docs 
+doctest - Module doctest -- a framework for running examples in docstrings.
+setuptools.command.upload_docs - upload_docs
+validate_pyproject.plugins - .. _entry point: https://setuptools.readthedocs.io/en/latest/userguide/entry_point.html
