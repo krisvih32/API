@@ -313,5 +313,7 @@ move=MotorPair("A", "D", one_motor_rotation_in_cm=55.25, color_sensor=port.C)
 async def main():
     ...
     # Write your code after this line
+    # Skanda did robotics totally
+    # second thing
 if __name__ == '__main__':
         run(main())
