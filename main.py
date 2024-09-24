@@ -309,7 +309,7 @@ def breakpoint(button):
     run(__wait_for_no_button(button))
 MotionSensor().reset_yaw(0)
 front_arm=Motor("F")
-move=MotorPair("A", "D", one_motor_rotation_in_cm=55.25, color_sensor=port.C)
+move=MotorPair("A", "D", wheel_diameter_mm=55.25, color_sensor=port.C)
 async def main():
     ...
     # Write your code after this line
