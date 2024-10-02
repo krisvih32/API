@@ -315,3 +315,4 @@ async def main():
     # Write your code after this line
 if __name__ == '__main__':
         run(main())
+        raise SystemExit
